@@ -557,6 +557,8 @@ class ParseResult(object):
         :return:
         :rtype: Quality
         """
+        if self.original_name.lower().find(".vostfr.") > -1 or self.original_name.lower().find(".subfrench.") > -1 or self.original_name.lower().find(".multi.") > -1:
+            return common.Quality.name_quality(self.original_name, self.is_anime, extend)		
         quality = common.Quality.from_guessit(guess)
         if quality != common.Quality.UNKNOWN:
             return quality

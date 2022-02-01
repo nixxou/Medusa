@@ -277,6 +277,18 @@ class Quality(object):
         :param extend: boolean to extend methods to try
         :return: Quality
         """
+        if name.lower().find(".vostfr.") > -1 and name.lower().find(".720p.") > -1:
+            return Quality.HDBLURAY
+        if name.lower().find(".subfrench.") > -1 and name.lower().find(".720p.") > -1:
+            return Quality.HDBLURAY
+        if name.lower().find(".multi.") > -1 and name.lower().find(".720p.") > -1:
+            return Quality.HDBLURAY
+        if name.lower().find(".vostfr.") > -1 and name.lower().find(".1080p.") > -1:
+            return Quality.FULLHDBLURAY
+        if name.lower().find(".subfrench.") > -1 and name.lower().find(".1080p.") > -1:
+            return Quality.FULLHDBLURAY
+        if name.lower().find(".multi.") > -1 and name.lower().find(".1080p.") > -1:
+            return Quality.FULLHDBLURAY		
         # Try getting the quality from the filename
         quality = Quality.quality_from_name(name, anime)
         if quality != Quality.UNKNOWN:

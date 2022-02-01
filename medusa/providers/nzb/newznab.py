@@ -133,7 +133,8 @@ class NewznabProvider(NZBProvider):
             if mode != 'RSS':
 
                 match_indexer = self._match_indexer()
-                if match_indexer and not force_query:
+                #if match_indexer and not force_query:
+                if match_indexer:				
                     search_params['t'] = 'tvsearch'
                     search_params.update(match_indexer)
 
